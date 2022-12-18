@@ -2,7 +2,7 @@ POST http://localhost:4000/users/signup
 Content-Type: application/json 
 
 {
-    "name":"AAmer MM",
+    "name":"bb",
     "email":"ggg",
     "password":"gg",
     "birthday":"10/10/2022",
@@ -19,7 +19,7 @@ DELETE http://localhost:4000/users/639be8fb39e3265fbcb051da
 
 ###
 
-get http://localhost:4000/users/getOne/639be92939e3265fbcb051dc
+get http://localhost:4000/users/getOne/ggg
 
 ### 
 
@@ -38,9 +38,53 @@ post http://localhost:4000/users/update/639be92939e3265fbcb051dc
 Content-Type: application/json 
 
 {
-    "name":"AAmer dddd",
+    "name":"amer essa",
     "email":"gggg",
     "birthday":"10/10/2022",
     "phoneNumber":"123u" ,
      "password":"gg"
+}
+
+### 
+
+GET http://localhost:4000/users/Auth
+Content-Type: application/json 
+
+{
+    "email":"aamer.es12@gmail.com",
+    "name":"Aamer Essa "
+   
+}
+
+### 
+
+
+post http://localhost:4000/posts/addNewPost 
+Content-Type: application/json 
+
+{
+    "title":"aamer.es12@gmail.com",
+    "created_At":"Aamer Essa ",
+    "ownerID":"12",
+    "content":"aaa"
+   
+}
+
+###
+
+get http://localhost:4000/posts/111 
+
+### 
+post http://localhost:4000/posts/639e11161173264aabf10d5b
+
+### 
+post http://localhost:4000/posts/update/639e14b453c9c8921dae6687
+Content-Type: application/json 
+
+{
+    "title":"tit",
+    "created_At":"2020/12/12",
+    "ownerID":"12",
+    "content":"aaa"
+   
 }

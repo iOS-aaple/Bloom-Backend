@@ -19,10 +19,12 @@ db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connected to database"));
 app.use(express.json());
 const userRouter = require("./routes/users");
+const postRouter = require("./routes/posts");
 
 app.use("/users", userRouter);
+app.use("/posts", postRouter);
 
-app.post("/users", (req, res) => {
-  console.log(req.body.name);
-});
+// app.post("/users", (req, res) => {
+//   console.log(req.body.name);
+// });
 app.listen(4000, () => console.log("server is up and running!!"));

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../model/user");
+const nodemailer = require("nodemailer");
 
 // signup
 router.post("/signup", async (req, res) => {
@@ -98,5 +99,41 @@ router.post("/update/:id", async (req, res) => {
   }
 });
 
-router.post("forgetPasswd");
+router.get("/Auth", async (req, res) => {
+  try {
+    const userName = req.body.name;
+    const userEmail = req.body.email;
+    const user = await User.findOne({ email: userEmail, name: userName });
+    if (user) {
+      const otp = Math.floor(Math.random() * 100000);
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "courseblueprint.cbp@gmail.com",
+          pass: "ipnbnifqfoxwikji",
+        },
+      });
+
+      const mailOptions = {
+        from: "courseblueprint.cbp@gmail.com",
+        to: userEmail,
+        subject: "رمز التحقق ",
+        text: "مرحبا \n رمز التحقق لتغير كملة السر هو " + otp,
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          res.status(200).json(otp);
+        }
+      });
+    } else {
+      res.status(400).json({ message: "user not found" });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error });
+  }
+});
+
 module.exports = router;
