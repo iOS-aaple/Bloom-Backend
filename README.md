@@ -6,4 +6,4 @@ before starting the app you need to :
 
 2- after the dependencies install you need to uninstall the bcrypt library by writing in the command " npm uninstall bcrypt "
 
-3- install the bcrypt again 😅 by writing in the command (npm i bcrypt). 
+3- install the bcrypt again 😅 by writing in the command " npm i bcrypt ". 
